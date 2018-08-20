@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="css/api.css"/>
+    <style>
+        html,body{
+            height: 100%;
+            background-color: #fff;
+            margin: 0;
+        }
+        .flex-wrap{
+            display: flex;
+            display: -webkit-flex;
+            display: -webkit-box;
+        }
+        #header{
+            height: 44px;
+            line-height: 44px;
+            width: 100%;
+            background: #888888;
+            text-align: center;
+            font-size: 20px;
+            color: #fff;
+
+        }
+        .header-left{
+            background: url(image/fanhui.png) no-repeat;
+            background-size: 10px 20px;
+            margin-left: 8px;
+            margin-right: 12px;
+            background-position: center left;
+            height: 44px;
+            width: 60px;
+        }
+        .header-title{
+            flex: 1;
+            -webkit-flex: 1;
+            -webkit-box-flex: 1;
+            margin: 0px 80px 0px 0px;
+        }
+
+    </style>
+</head>
+<body>
+<header id="header" class="flex-wrap">
+    <div class="header-left" tapmode="opacity"  onclick="fnClose();"></div>
+    <div class="header-title" id="title">WMChatView</div>
+</header>
+
+</body>
+<script type="text/javascript" src="script/api.js"></script>
+<script type="text/javascript">
+
+    var headerH;
+
+    var UIChatBar;
+    apiready = function(){
+
+        headerH = document.getElementById('header');
+        headerH.style.paddingTop = api.safeArea.top + 'px';
+
+
+
+        showlist();
+        scrollToBottom();
+
+
+
+    };
+
+    function fnClose() {
+
+        api.closeWin();
+    }
+
+
+    function scrollToBottom () {
+
+        var UIListView = api.require('mwChatView');
+
+        UIListView.scrollToBottom({
+
+        }, function(ret, err){
+
+
+        });
+
+    }
+
+    function stopLoad() {
+        var UIListView = api.require('mwChatView');
+
+        UIListView.stopLoadData({
+
+        }, function(ret, err){
+
+
+        });
+    }
+
+    function showlist() {
+
+        var bundelImgae;
+        if (api.systemType == 'android') {
+            bundelImgae= "widget://res/image/androidSend.png";
+        } else {
+            bundelImgae= "widget://res/image/send.png";
+        }
+        var MWChatView = api.require('mwChatView');
+        MWChatView.open({
+            rect: {
+                x: 0,
+                y: 64,
+                w: api.winWidth,
+                h: api.frameHeight - 64,
+            },
+            data:[
+                {
+                    "iconImage": "widget://res/image/icon.jpeg",
+                    "senderName": "小明",
+                    "text": "狼烟风沙口还请将军少饮酒",
+                    "type": "text",
+                    "status": 1,
+                    "isSender": true,
+                    "senderUniqueId": "cwMQC69wJ9AdrseC5w4Rs3",
+                    "sendTime":"12:00",
+                },
+                {
+                    "iconImage": "widget://res/image/icon.jpeg",
+                    "senderName": "小明",
+                    "text": "前方的路不好走我在家中来等候",
+                    "type": "text",
+                    "status": 2,
+                    "tiptitle": "dfggh",
+                    "isSender": true,
+                    "senderUniqueId": "hf3676a5KBunNMEV6ZMHaV"
+                },
+                {
+                    "iconImage": "widget://res/image/icon.jpeg",
+                    "senderName": "小明",
+                    "text": "可愿柳下走满头杨花共白首",
+                    "type": "text",
+                    "status": 0,
+                    "tiptitle": "Sdffg",
+                    "isSender": true,
+                    "senderUniqueId": "cwMQC69wJ9AdrseC5w4Rs3"
+                },
+                {
+                    "iconImage": "widget://res/image/icon.jpeg",
+                    "senderName": "小明",
+                    "text": "十两相思二两酒我才把爱说出口\n他一路凶险一路漂泊从未安静过活\n也受过挫折依旧执着也曾信仰过佛",
+                    "type": "text",
+                    "status": 0,
+                    "isSender": true,
+                    "senderUniqueId": "hf3676a5KBunNMEV6ZMHaV",
+                    "sendTime":"12:03",
+
+                },
+                {
+                    "iconImage": "widget://res/image/icon.jpeg",
+                    "senderName": "将军",
+                    "text": "好的",
+                    "type": "text",
+                    "status": 0,
+                    "tiptitle": "gggggyy",
+                    "isSender": false,
+                    "senderUniqueId": "hf3676a5KBunNMEV6ZMHaV"
+                },
+                {
+                    "type": "tip",
+                    "status": 0,
+                    "tiptitle": "小三加入群聊",
+                    "isSender": false,
+                    "senderUniqueId": "",
+                    "text": "小三加入群聊",
+
+                },
+                {
+                    "iconImage": "widget://res/image/icon.jpeg",
+                    "senderName": "小三",
+                    "text": "Weeds",
+                    "type": "img",
+                    "status": 0,
+                    "isSender": false,
+                    "image": {
+                        "imagePath": 'widget://res/image/loveyou.jpeg',
+                        "width": 450,
+                        "height": 305
+                    },
+                    "sendTime":"12:08",
+
+                },
+
+                {
+                    "iconImage": "widget://res/image/icon.jpeg",
+                    "senderName": "小明",
+                    "text": "有问题百度一下www.baidu.com",
+                    "type": "text",
+                    "status": 0,
+                    "isSender": true,
+                },
+                {
+                    "type": "tip",
+                    "status": 0,
+                    "tiptitle": "小四加入群聊",
+                    "isSender": false,
+                    "senderUniqueId": "",
+                    "text": "小四加入群聊",
+
+                },
+                {
+                    "type": "tip",
+                    "status": 0,
+                    "tiptitle": "小三被你踢出群聊",
+                    "isSender": false,
+                    "senderUniqueId": "",
+                    "text": "小三被你踢出群聊",
+
+                },
+                {
+                    "type": "tip",
+                    "status": 0,
+                    "tiptitle": "小四被你踢出群聊",
+                    "isSender": false,
+                    "senderUniqueId": "",
+                    "text": "小四被你踢出群聊",
+
+                }
+
+            ],
+
+            styles: {
+
+                bottom:50,
+                BgColor:'#eeeeee' ,           //（可选项）字符串类型；模块的背景颜色，支持 rgb、rgba、#；默认：'#272727'
+                receiveStyle: {                             //（可选项）JSON对象；列表项的样式
+                    iconSize: 50,                   //（可选项）数字类型；列表项头像的宽度；默认：列表项的高度减去10px
+                    iconCorner: 25,                   //（可选项）数字类型；列表项头像的圆角大小；默认：0
+                    iconRound:true,                   //（可选项）布尔类型：头像是否为圆形，imageRound 为 true，则 imageCorner 不起效
+                    iconplaceholderImg: '',             //（可选项）字符串类型；列表项头像的占位图路径（本地路径，fs://、widget://），默认：APICloud 图标
+                    nameTopMargin:5,                //（可选项）数字类型；列表项的名字的上边距；默认：5(跟time的下边距相同)
+                    nameBottomMargin:5,             //（可选项）数字类型；列表项的名字的下边距；默认：5(跟badge的下边距相同)
+                    nameFont: 12,                  //（可选项）数字类型；列表项名字文字大小；默认：12
+                    nameColor: '#000',             //（可选项）字符串类型；列表项名字文字颜色，支持 rgb，rgba，#；默认：'#000000'
+                    textFont: 20,               //（可选项）数字类型；列表项子发送文字大小；默认：12
+                    textColor: '#EAEAEA',          //（可选项）字符串类型：列表项子发送文字颜色，支持 rgb、rgba、#；默认：'#000000'
+                    timeColor: '#000',              //（可选项）字符串类型；时间标签的文字颜色，支持 rgb、rgba、#；默认：'#000000'
+                    timeSize: 10,                 //（可选项）数字类型；时间标签文字大小；默认：10
+                    BubbleImage:bundelImgae,
+                    maxWidth:200,
+                    imageBgColor:'#EAEAEA',
+                    textRecognitionColor:"#4cc518",
+                },
+                sendStyle:{                        //（可选项）JSON对象;列表项 isSener 为 true 的样式，如果不设置，会继承 item 中的中的设置
+                    iconSize: 50,                   //（可选项）数字类型；列表项头像的宽度；默认：列表项的高度减去10px
+                    iconCorner: 25,                   //（可选项）数字类型；列表项头像的圆角大小；默认：0
+                    iconRound:true,                   //（可选项）布尔类型：头像是否为圆形，imageRound 为 true，则 imageCorner 不起效
+                    iconplaceholderImg: '',//（可选项）字符串类型；列表项头像的占位图路径（本地路径，fs://、widget://），默认：APICloud 图标
+                    nameFont: 12,                  //（可选项）数字类型；列表项名字文字大小；默认：12
+                    nameColor: '#000',             //（可选项）字符串类型；列表项名字文字颜色，支持 rgb，rgba，#；默认：'#000000'
+                    textFont: 12,               //（可选项）数字类型；列表项子发送文字文字大小；默认：12
+                    textColor: '#000',          //（可选项）字符串类型：列表项子发送文字颜色，支持 rgb、rgba、#；默认：'#000000'
+                    timeColor: '#000',              //（可选项）字符串类型；时间标签的文字颜色，支持 rgb、rgba、#；默认：'#000000'
+                    timeSize: 10,                //（可选项）数字类型；时间标签文字大小；默认：10
+                    BubbleImage:bundelImgae,
+                    maxWidth:200,
+                    imageBgColor:'#FFFFFF',
+                    textRecognitionColor:"#4cc518",
+                },
+                tipStyle:{
+                    textColor: '#bbbbbb',
+                    MaxWidth:150,
+                    textFont: 12,
+                    textBgColor:'eeeeee',
+                }
+
+            },
+            fixedOn: api.frameName
+        }, function (ret, err) {
+            if (ret) {
+                if(ret.eventType == 'clickRetry'){
+                    alert(JSON.stringify(ret));
+
+                }else if(ret.eventType == 'longClickContent') {
+
+                }else if(ret.eventType == 'getMoreData') {
+
+                    setTimeout("indexItem()",1000);
+
+                }else if(ret.eventType != 'viewDidScroll') {
+                    alert(JSON.stringify(ret));
+
+                }else  {
+
+                }
+            } else {
+                //              alert(JSON.stringify(err));
+
+            }
+        });
+    }
+
+
+
+
+
+    function indexItem () {
+
+        var MWChatView = api.require('mwChatView');
+        MWChatView.insertItem({
+            index:0,
+            data:[
+                {
+                    "iconImage": "",
+                    "senderName": "小明",
+                    "text": "狼烟风沙口还请将军少饮酒",
+                    "type": "text",
+                    "sendStatus": 0,
+                    "isSender": true,
+                    "senderUniqueId": "cwMQC69wJ9AdrseC5w4Rs3"
+                },
+                {
+                    "iconImage": "",
+                    "senderName": "小明",
+                    "text": "狼烟风沙口还请将军少饮酒",
+                    "type": "text",
+                    "sendStatus": 0,
+                    "isSender": true,
+                    "senderUniqueId": "cwMQC69wJ9AdrseC5w4Rs3"
+                },
+            ]
+        }, function (ret, err) {
+            if (ret) {
+
+
+                stopLoad();
+
+                // alert(JSON.stringify(ret));
+            } else {
+                alert(JSON.stringify(err));
+            }
+        });
+
+    }
+
+
+
+
+
+    function openUIChatBar() {
+
+
+        UIChatBar.open({
+            placeholder: '请输入你想说的话',
+            maxRows: 4,
+            texts: {
+                sendBtn:{
+                    title:'发送'
+                }
+            },
+            styles: {
+                inputBar: {
+                    borderColor: '#fefefe',
+                    bgColor: '#fff'
+                },
+                inputBox: {
+                    borderColor: '#e2e2e2',
+                    bgColor: '#F1F1F1',
+                    textColor: '#000'
+                },
+
+                indicator: {
+                    target: 'both',
+                    color: '#c4c4c4',
+                    activeColor: '#9e9e9e'
+                },
+                sendBtn: {                         //（可选项）JSON对象；发送按钮样式，本参数对 iOS 平台上的键盘内发送按钮无效
+                    bg: '#4cc518',                 //（可选项）字符串类型；发送按钮背景颜色，支持 rgb、rgba、#、img；默认：#4cc518
+                    titleColor: '#ffffff',          //（可选项）字符串类型；发送按钮标题颜色；默认：#ffffff
+                    activeBg: '#46a91e',            //（可选项）字符串类型；发送按钮背景颜色，支持 rgb、rgba、#、img；默认：无
+                    titleSize: 13                    //（可选项）数字类型；发送按钮标题字体大小；默认：13
+                }
+            },
+
+        }, function(ret, err){
+
+
+        });
+    }
+</script>
+</html>

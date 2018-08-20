@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Module Develop</title>
+<meta charset="utf-8">
+<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+<style type="text/css">
+	html,body{
+		height: 100%
+	}
+	body{
+		background-color: #fff;
+	    margin: 0;
+	}
+	#wrap{
+	    height: 100%;
+	    position: relative;
+	}
+	#header{
+		background-color: #888888;
+		height: 44px;
+	    position: relative;
+	}
+    #header h1{
+        font-size: 20px;
+        height: 44px;
+        line-height: 44px;
+        margin: 0em;
+        color: #fff;
+        margin-left: 100px;
+        margin-right: 100px;
+        text-align: center;
+    }
+	.list{
+		background: #ffffff;
+	}
+	.about-content{
+		padding: 0px;
+	}
+	.list-item{
+		display: flex;
+		height: 50px;
+		line-height: 50px;
+		border-bottom: 1px solid #f5f5f5;
+		align-items: center;
+	}
+	.item-lable{
+		/*margin-left: 100px;*/
+        text-align: center;
+	}
+
+	.item-flex{
+		flex: 1;
+	}
+
+
+
+</style>
+</head>
+<body>
+<div id="wrap">
+    <header id="header">
+        <h1 id="title">WMChatView</h1>
+    </header>
+    <div id="content">
+        <section class="list about-content">
+            <div class="list-item" tapmode="opacity" onclick="openmodel(0)">
+                <div class="item-lable item-flex">点击进入</div>
+            </div>
+        </section>
+
+
+    </div>
+</div>
+</body>
+<script>
+
+
+
+function apiready() {
+    var header = document.getElementById('header');
+    header.style.paddingTop = api.safeArea.top + 'px';
+
+
+
+}
+
+
+
+function openmodel (index) {
+    if(index == 0) {
+        api.openWin({
+            name: 'MWChatView.html',
+            url: './MWChatView.html',
+
+            reload: true,
+            bounces: false,
+            bgColor: '#f2f2f2',
+            vScrollBarEnabled: false,
+            hScrollBarEnabled: false
+        });
+    }
+
+
+
+}
+
+
+
+</script>
+</html>
